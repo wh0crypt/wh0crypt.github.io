@@ -198,3 +198,15 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+jekyll_compose:
+  default_front_matter:
+    drafts:
+      title:
+      categories:
+      tags:
+      author: zodi4c
+    posts:
+      categories:
+      tags:
+      author: zodi4c
