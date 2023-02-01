@@ -24,7 +24,7 @@ title: zodi4c                          # the main title
 tagline: Red team pentester and CTF player - OSEP | OSED | OSCP | OSWP | eWPTX | CPHE   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
+  Infosec articles about Penetration Testing, Red Team tactics, Exploit Development, Vulnerability Research and CTF write-ups
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: ''
