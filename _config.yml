@@ -19,7 +19,7 @@ timezone: Atlantic/Canary
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: zodi4c                          # the main title
+title: /home/zodi4c                          # the main title
 
 tagline: Red team pentester and CTF player - OSEP | OSED | OSCP | OSWP | eWPTX | CPHE   # it will display as the sub-title
 
@@ -81,7 +81,7 @@ theme_mode: dark  # [light|dark]
 img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: assets/img/kitten.jpg
+avatar: assets/img/profile.png
 
 # boolean type, the global switch for ToC in posts.
 toc: true
