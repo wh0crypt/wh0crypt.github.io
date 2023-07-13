@@ -1,13 +1,17 @@
 ---
 layout: post
-title: "Breaking Minesweeper: The mimikatz way"
-categories: [Reverse Engineering]
-tags: [Rust, Ghidra, WinDbg]
-author: zodi4c 
-img_path: /assets/img/minesweeper/
+title: 'Breaking Minesweeper: The mimikatz way'
+categories:
+- Reverse Engineering
+tags:
+- Rust
+- Ghidra
+- WinDbg
+author: zodi4c
+img_path: "/assets/img/minesweeper/"
 image: win7_mimikatz.png
+date: 2023-07-13 18:21 +0100
 ---
-
 In this post, we will discuss how the Minesweeper module of `mimikatz` is implemented and code our own version in Rust. The finished crate can be found in the [`mimisweep`](https://github.com/zodi4cx/mimisweep) repository.
 
 ## Motivation
