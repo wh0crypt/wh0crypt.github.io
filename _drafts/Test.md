@@ -10,14 +10,15 @@ author: zodi4c
 
 Hi! This is a test.
 
+
 ## Code
 
 ```rust
-pub fn process_pid_by_name(process_name: &str) -> Option<u32> {
-    let system = System::new_all();
-    let mut processes = system.processes_by_exact_name(process_name);
-    (*processes).next().map(|process| process.pid().as_u32())
-}
+let Some((pid, version)) = version_map.iter().find_map(|(name, version)| {
+    utils::process_pid_by_name(name).map(|pid| (pid, version))
+}) else {
+    bail!("no minesweeper in memory!");
+};
 ```
 {: file="test.rs" }
 
@@ -25,6 +26,8 @@ pub fn process_pid_by_name(process_name: &str) -> Option<u32> {
 
 > This is a test tooltip. They look fun! =)
 {: .prompt-info }
+
+The file `/etc/hostname`{: .filepath} is interesting.
 
 # Ending
 
