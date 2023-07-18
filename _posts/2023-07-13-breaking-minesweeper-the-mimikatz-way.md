@@ -1,11 +1,10 @@
 ---
 layout: post
-title: 'Breaking Minesweeper: The mimikatz way'
+title: 'Breaking Minesweeper: The mimikatz Way'
 categories:
 - Reverse Engineering
 tags:
 - Rust
-- Ghidra
 - WinDbg
 author: zodi4c
 img_path: "/assets/img/minesweeper/"
@@ -565,11 +564,11 @@ Okay, that's a bit unclear for me at first sight, so let's break it down:
 - In **line 8**, the Image Base address is used to copy the [DOS header](https://0xrick.github.io/win-internals/pe3) over to our process. There is a sanity check in place, which ensures that the `e_magic` field is valid.
 - In **line 10**, the address of the NT header is calculated by offsetting the Image Base by the value indicated by the `e_lfanew` field of the DOS header.
 - In **line 13**, the first two fields of the NT headers are copied: the `Signature`, and the `FileHeader`. As a sanity check, the signature is checked against its expected value.
-- In **line 16**, the `Machine` field of the File Header is used to determine the size of the complete NT header. This is due to the size of this structure being architecture-dependent: the `OptionalHeader` field may hold an `IMAGE_NT_HEADERS32` in `x86` executables, or an `IMAGE_NT_HEADERS64` in `x64` PE files.
+- In **line 16**, the `Machine` field of the File Header is used to determine the size of the complete NT header. This is due to the size of this structure being architecture-dependent: the `OptionalHeader` field may hold an [`IMAGE_NT_HEADERS32`](https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-image_optional_header32) in `x86` executables, or an [`IMAGE_NT_HEADERS64`](https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-image_optional_header64) in `x64` PE files.
 - In **line 19**, the whole NT headers are copied over to the current process memory space.
 
 ![PE headers representation](pe_headers.jpg)
-*Original diagram from [OSDev.org](https://wiki.osdev.org/PE)*
+*PE headers diagram from [OSDev.org](https://wiki.osdev.org/PE)*
 
 That took a few steps, but we now know how to extract the NT headers from the Minesweeper process. The caveat with this implementation is that the output of this function may have a different size depending on the architecture in which the target executable was compiled. We can not implement this logic directly into Rust, as all types must have a known size at compile time.
 
@@ -960,21 +959,10 @@ if(kull_m_memory_copy(&aBuffer, &aRemote, sizeof(PVOID)))
 
 If you are anything like me, **line 1** may come as a surprise. Initially, I could understand that the value that we just read was added to the address of the `cmp` instruction, as it indicates a relative offset from it. But, why are we adding an additional displacement of *5 bytes*?
 
-This turned out to be a quite deep rabbit hole to research. The `cmp` instruction used belongs to an extension of the `x86` and `x86-64` instruction set architecture, which uses the [VEX coding scheme](https://en.wikipedia.org/wiki/VEX_prefix). In the encoding of the instruction, the [SIB byte](https://en.wikipedia.org/wiki/ModR/M#SIB_byte) is used to indicate additional addressing for complex scenarios. In this case, the SIB byte indicates that an additional displacement of 5 bytes must be considered to reach the target address for the operation:
+This turned out to be a quite deep rabbit hole to research. The `cmp` instruction used belongs to an extension of the `x86` and `x86-64` instruction set architecture, which uses the [VEX coding scheme](https://en.wikipedia.org/wiki/VEX_prefix). In the encoding of the instruction, the [SIB byte](https://en.wikipedia.org/wiki/ModR/M#SIB_byte) is used to indicate additional addressing for complex scenarios. In this case, the SIB byte indicates that an additional displacement of 5 bytes must be considered to reach the target address for the operation.
 
-```
-00007ff7`2342bc2c 48833d04ee070000 cmp     qword ptr [Minesweeper!Game::G (00007ff7`234aaa38)],0
-                      ^^ SIB byte
-0x3d = 0b00111101
-         ^^***###
-          │  │  └ Base
-          │  └─── Index 
-          └────── Scale
-
-(scale * index) + base + displacement
-(0b000 * 0b111) + 0b101 + 0x04ee0700 = 0x5 + 0x04ee0700
-                                       ~~~
-```
+![`cmp` instruction dissection](sib_byte.png)
+*`x86-64 cmp` instruction dissection.*
 
 Now, knowing why 5 bytes are added to the offset, let's adapt the code to Rust and copy the `G` variable to our process:
 
@@ -1120,6 +1108,7 @@ println!("\n{board}");
 We are **finally** ready to run our tool and check the final result!
 
 ![Program in action](mimisweep.png)
+*Execution of the tool with the official Windows 7 Minesweeper.*
 
 ## Final thoughts
 

@@ -19,3 +19,6 @@ Gemfile.lock
 # npm dependencies
 node_modules
 package-lock.json
+
+# Obsidian files
+Excalidraw/
