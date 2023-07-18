@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Breaking Minesweeper: The mimikatz Way'
+title: 'Breaking Minesweeper: The mimikatz way'
 categories:
 - Reverse Engineering
 tags:
