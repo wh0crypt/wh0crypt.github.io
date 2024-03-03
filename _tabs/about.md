@@ -4,4 +4,4 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-I'm a red team pentester, passionate about challenges and researching every single rabbit hole that I encounter. In this blog, I will be writing about any cybersecurity-related topic that I find interesting enough. For any question, comment and/or correction, feel free to contact me!
+I'm wh0crypt. I'm currently studying Computer Engineering at University of La Laguna. I describe myself as a Hacking enjoyer seeking to share his thing. I will try my best to improve and make you part of my journey. For any question, comment and/or correction, feel free to contact me!

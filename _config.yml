@@ -19,34 +19,35 @@ timezone: Atlantic/Canary
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: /home/zodi4c                          # the main title
+title: /home/wh0crypt                          # the main title
 
-tagline: Red team pentester and CTF player - <span class="osce">OSCE³</span> | <span class="oscp">OSCP</span> | <span class="oswp">OSWP</span> | <span class="ewptx">eWPTX</span> | <span class="cphe">CPHE</span>   # it will display as the sub-title
+tagline: Computer Engineering Student and CTF Player - <span class="cybersec">Cybersecurity</span>, <span class="crypto">Cryptography</span> & <span class="sysadmin">SysAdmin</span>   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  Infosec articles about Penetration Testing, Red Team tactics, Exploit Development, Vulnerability Research and CTF write-ups
+  Infosec articles about Penetration Testing, Cybersecurity, Research and CTF write-ups
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: ''
 
 github:
-  username: zodi4cx             # change to your github username
+  username: wh0crypt             # change to your github username
 
 twitter:
-  username: _zodi4c_            # change to your twitter username
+  username: wh0crypt            # change to your twitter username
 
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: Javier Correa
-  email: jcorreamarichal@gmail.com             # change to your email address
+  name: wh0crypt
+  email: wh0crypt@protonmail.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/_zodi4c_      # change to your twitter homepage
-    - https://github.com/zodi4cx       # change to your github homepage
+    - https://twitter.com/wh0crypt      # change to your twitter homepage
+    - https://github.com/wh0crypt       # change to your github homepage
+    - https://app.hackthebox.com/profile/1211340
     # Uncomment below to add more social links
   # - https://www.facebook.com/username
-    - https://www.linkedin.com/in/zodi4c
+    - https://www.linkedin.com/in/wh0crypt
 
 google_site_verification:               # fill in to your verification string
 
@@ -205,8 +206,8 @@ jekyll_compose:
       title:
       categories:
       tags:
-      author: zodi4c
+      author: wh0crypt
     posts:
       categories:
       tags:
-      author: zodi4c
+      author: wh0crypt
