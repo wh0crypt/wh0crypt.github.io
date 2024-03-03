@@ -21,7 +21,7 @@ timezone: Atlantic/Canary
 
 title: /home/wh0crypt                          # the main title
 
-tagline: Computer Engineering Student and CTF Player - <span class="cybersec">Cybersecurity</span>, <span class="crypto">Cryptography</span> & <span class="sysadmin">SysAdmin</span>   # it will display as the sub-title
+tagline: CompEng Student and CTF Player - <span class="cybersec">Cybersec</span>, <span class="crypto">Crypto</span> & <span class="sysadmin">SysAdmin</span>   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   Infosec articles about Penetration Testing, Cybersecurity, Research and CTF write-ups
