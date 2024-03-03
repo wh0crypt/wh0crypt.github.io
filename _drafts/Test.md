@@ -3,7 +3,7 @@ title: Test post
 date: 2022-01-18 14:30:00 +0000
 categories: [test]
 tags: [test]     # TAG names should always be lowercase
-author: zodi4c
+author: wh0crypt
 ---
 
 # Introduction
